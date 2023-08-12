@@ -48,6 +48,48 @@
 			"response": []
 		},
 		{
+			"name": "http://localhost:8080/api/pdf/generate/MortgageApplicationForm",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"applicant\": {\r\n\t\t\"fullName\": \"John Doe\",\r\n\t\t\"dob\": \"1990-01-01\",\r\n\t\t\"ssn\": \"123-45-6789\",\r\n\t\t\"address\": \"123 Elm Street, Springfield\",\r\n\t\t\"contactNumber\": \"+1234567890\",\r\n\t\t\"email\": \"johndoe@example.com\"\r\n\t},\r\n\t\"employment\": {\r\n\t\t\"employerName\": \"Tech Corp.\",\r\n\t\t\"jobTitle\": \"Software Engineer\",\r\n\t\t\"yearsEmployed\": \"5\",\r\n\t\t\"monthlyIncome\": \"5000\"\r\n\t},\r\n\t\"financial\": {\r\n\t\t\"assets\": \"100000\",\r\n\t\t\"liabilities\": \"50000\",\r\n\t\t\"creditScore\": \"750\"\r\n\t},\r\n\t\"property\": {\r\n\t\t\"address\": \"456 Maple Street, Springfield\",\r\n\t\t\"type\": \"Single Family Home\",\r\n\t\t\"purchasePrice\": \"250000\",\r\n\t\t\"downPayment\": \"50000\"\r\n\t},\r\n\t\"banking\": {\r\n\t\t\"bankName\": \"State Bank of India\",\r\n\t\t\"accountNumber\": \"SBIN0001234\",\r\n\t\t\"accountType\": \"Savings\",\r\n\t\t\"ifsc\": \"SBIN0012345\"\r\n\t},\r\n\t\"coApplicant1\": {\r\n\t\t\"fullName\": \"Alice Smith\"\r\n\t},\r\n\t\"coApplicant2\": {\r\n\t\t\"fullName\": \"Bob Johnson\"\r\n\t},\r\n\t\"reference1\": {\r\n\t\t\"name\": \"Charlie Brown\"\r\n\t},\r\n\t\"reference2\": {\r\n\t\t\"name\": \"David Williams\"\r\n\t},\r\n\t\"reference3\": {\r\n\t\t\"name\": \"Eva Martinez\"\r\n\t},\r\n\t\"reference4\": {\r\n\t\t\"name\": \"Frank Garcia\"\r\n\t},\r\n\t\"kyc\": {\r\n\t\t\"panCard\": true,\r\n\t\t\"aadhaarCard\": true,\r\n\t\t\"voterId\": false,\r\n\t\t\"passport\": true,\r\n\t\t\"drivingLicense\": false\r\n\t},\r\n\t\"loan\": {\r\n\t\t\"amountRequired\": \"2000000\",\r\n\t\t\"termInYears\": \"15\",\r\n\t\t\"purpose\": \"Purchasing a new home\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pdf/generate/MortgageApplicationForm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pdf",
+						"generate",
+						"MortgageApplicationForm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "http://localhost:8080/api/pdf/generate/WelcomeLetter",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
