@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Mortgage Loan Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .terms {
+            font-size: 12px;
+            text-align: justify;
+        }
+        .header {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+            font-size: 24px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .terms {
+            font-size: 10px;
+            text-align: justify;
+        }
+        @page{
+
+    @bottom-left {                 
+        content: element(footer);  
+        vertical-align: top;
+        padding-top: 10px;
+/*      border: solid red;    */
+    }
+
+    @top-right {
+        content: element(header); 
+        vertical-align: bottom;
+        padding-bottom: 10px;
+/*          border: solid green;   */
+    }
+
+    size: A4 portrait;
+    margin-top:5.5cm; 
+    margin-left:3cm; 
+    margin-right:2cm; 
+    margin-bottom:3.3cm; 
+}
+
+div.header {
+    display: block;                     
+    position: running(header);
+    border-bottom: 1px solid black;
+}
+
+div.footer {
+    margin-top: 0.5cm;
+    display: block;
+    position: running(footer);
+    border-top: 1px solid black; 
+}
+
+div.content {
+/*  border: solid purple;  */
+    display: block;
+    width: 15.4cm; 
+    text-align: justify;
+}
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px; /* adjust as per requirement */
+}
+
+.field-container {
+  flex: 0 1 49%; /* take up almost half the width with a little space for margin */
+}
+
+.label, .value {
+  margin: 0; /* remove default margin */
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">Mortgage Loan Application Form - <p><span th:text="${pdfId}"></span></p></div>
+    <div class="footer">
+        <p>Date:<span th:text="${dateTime}"></span></p>
+        <p>Page <span id="pagenumber"></span> of <span id="pagecount"></span></p>/
+    </div>
+
+<!-- Page 1: Personal Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Full Name:</div>
+            <div class="value" th:text="${applicant.fullName}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Date of Birth:</div>
+            <div class="value" th:text="${applicant.dob}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Social Security Number:</div>
+            <div class="value" th:text="${applicant.ssn}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Address:</div>
+            <div class="value" th:text="${applicant.address}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Contact Number:</div>
+            <div class="value" th:text="${applicant.contactNumber}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Email Address:</div>
+            <div class="value" th:text="${applicant.email}"></div>
+        </div>
+    </div>
+</div>
+<!-- Employment Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Employer:</div>
+            <div class="value" th:text="${employment.employerName}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Job Title:</div>
+            <div class="value" th:text="${employment.jobTitle}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Years Employed:</div>
+            <div class="value" th:text="${employment.yearsEmployed}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Monthly Income:</div>
+            <div class="value" th:text="${employment.monthlyIncome}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Financial Information -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Total Assets:</div>
+            <div class="value" th:text="${financial.assets}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Total Liabilities:</div>
+            <div class="value" th:text="${financial.liabilities}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Credit Score:</div>
+            <div class="value" th:text="${financial.creditScore}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Property Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Property Address:</div>
+            <div class="value" th:text="${property.address}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Property Type:</div>
+            <div class="value" th:text="${property.type}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Purchase Price:</div>
+            <div class="value" th:text="${property.purchasePrice}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Down Payment:</div>
+            <div class="value" th:text="${property.downPayment}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Banking Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Bank Name:</div>
+            <div class="value" th:text="${banking.bankName}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Account Number:</div>
+            <div class="value" th:text="${banking.accountNumber}"></div>
+        </div>
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Account Type:</div>
+            <div class="value" th:text="${banking.accountType}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">IFSC Code:</div>
+            <div class="value" th:text="${banking.ifsc}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Co-applicants' Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Co-applicant 1 Name:</div>
+            <div class="value" th:text="${coApplicant1.fullName}"></div>
+        </div>
+        <!-- Assuming there are more details for co-applicant1 -->
+    </div>
+
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Co-applicant 2 Name:</div>
+            <div class="value" th:text="${coApplicant2.fullName}"></div>
+        </div>
+        <!-- Assuming there are more details for co-applicant2 -->
+    </div>
+</div>
+
+<!-- Reference/Witness Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Reference 1:</div>
+            <div class="value" th:text="${reference1.name}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Reference 2:</div>
+            <div class="value" th:text="${reference2.name}"></div>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Reference 3:</div>
+            <div class="value" th:text="${reference3.name}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Reference 4:</div>
+            <div class="value" th:text="${reference4.name}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- KYC Document Checklist (Indian Perspective) -->
+<div class="section">
+    <div class="label">KYC Document Checklist:</div>
+    <div class="field-row">
+        <div class="field-container">
+            <ul>
+                <li th:if="${kyc.panCard}">PAN Card</li>
+                <li th:if="${kyc.aadhaarCard}">Aadhaar Card</li>
+                <li th:if="${kyc.voterId}">Voter ID</li>
+            </ul>
+        </div>
+        <div class="field-container">
+            <ul>
+                <li th:if="${kyc.passport}">Passport</li>
+                <li th:if="${kyc.drivingLicense}">Driving License</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Loan Requirement Details -->
+<div class="section">
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Loan Amount Required:</div>
+            <div class="value" th:text="${loan.amountRequired}"></div>
+        </div>
+        <div class="field-container">
+            <div class="label">Loan Term (in years):</div>
+            <div class="value" th:text="${loan.termInYears}"></div>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field-container">
+            <div class="label">Purpose of Loan:</div>
+            <div class="value" th:text="${loan.purpose}"></div>
+        </div>
+    </div>
+</div>    
+<!-- Terms and Conditions -->
+<div class="section">
+    <h2>Terms and Conditions</h2>
+    <p class="terms">
+        1. The borrower agrees to the terms and conditions set forth in this document.
+        2. Repayment terms are binding and the borrower agrees to make repayments on the agreed upon dates.
+        3. Failure to make repayments may result in legal action.
+        4. The borrower has the right to prepay the loan without any penalty.
+        5. The lender reserves the right to amend the terms and conditions with prior notice to the borrower.
+        (Add more terms and conditions as needed)
+    </p>
+</div>
+
+
+</body>
+
+</html>

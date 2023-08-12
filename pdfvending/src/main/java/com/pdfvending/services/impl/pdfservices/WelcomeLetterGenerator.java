@@ -14,6 +14,7 @@ import com.pdfvending.exception.MissingDataException;
 import com.pdfvending.services.HtmlRenderer;
 import com.pdfvending.services.PDFConverter;
 import com.pdfvending.services.PDFGenerator;
+import com.pdfvending.utils.GetCurrentTimestamp;
 
 @Service("WelcomeLetter")
 public class WelcomeLetterGenerator implements PDFGenerator {
@@ -31,6 +32,7 @@ public class WelcomeLetterGenerator implements PDFGenerator {
     @Override
     public CompletableFuture<byte[]> generatePDF(Map<String, Object> data) {
         data.put("pdfId", MDC.get(TRACE_ID));
+        data.put("dateTime", GetCurrentTimestamp.getCurrentTimeStamp());
         String renderedHtmlContent = htmlRenderer.render(templateName, data);
         validateData(data);
         logger.info("Generating the Welcome Letter PDF");
