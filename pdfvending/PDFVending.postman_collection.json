@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/api/pdf/generate/SanctionLetter",
+			"name": "http://localhost:8080/api/pdf/generate/LoanStatement",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"content-type": true
@@ -23,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"applicantName\": \"John Doe\", \"sanctionAmount\": \"100000\",\r\n             \"repaymentSchedule\": [\r\n                 {\r\n                     \"installmentNo\": \"1\",\r\n                     \"date\": \"2023-09-01\",\r\n                     \"principalAmount\": \"5000\",\r\n                     \"interest\": \"200\",\r\n                     \"totalRepayment\": \"5200\"\r\n                 },\r\n                 {\r\n                     \"installmentNo\": \"2\",\r\n                     \"date\": \"2023-10-01\",\r\n                     \"principalAmount\": \"5000\",\r\n                     \"interest\": \"195\",\r\n                     \"totalRepayment\": \"5195\"\r\n                 }                 \r\n             ]}",
+					"raw": "{ \r\n    \"accountNumber\": \"1234567890\",\r\n    \"customerName\": \"John Doe\",\r\n    \"loanAmount\": \"5000.00\",\r\n    \"repaymentSchedule\": [\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n      {\r\n        \"date\": \"2023-01-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"5.00\",\r\n        \"total\": \"105.00\"\r\n      },\r\n      {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      },\r\n       {\r\n        \"date\": \"2023-02-01\",\r\n        \"principal\": \"100.00\",\r\n        \"interest\": \"4.90\",\r\n        \"total\": \"104.90\"\r\n      }\r\n    ]}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,7 +31,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/pdf/generate/SanctionLetter",
+					"raw": "http://localhost:8080/api/pdf/generate/LoanStatement",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -41,14 +41,56 @@
 						"api",
 						"pdf",
 						"generate",
-						"SanctionLetter"
+						"LoanStatement"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/api/pdf/generate/SanctionLetter Copy",
+			"name": "http://localhost:8080/api/pdf/generate/WelcomeLetter",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"applicantName\": \"John Doe\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pdf/generate/WelcomeLetter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pdf",
+						"generate",
+						"WelcomeLetter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/pdf/generate/SanctionLetter",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"content-type": true
