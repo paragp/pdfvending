@@ -1,4 +1,4 @@
-Introducing PDFVending: Your One-Stop PDF Generation Solution
+**Introducing PDFVending: Your One-Stop PDF Generation Solution**
 
 Imagine a vending machine, but instead of snacks, it dispenses perfectly formatted PDFs. Welcome to PDFVending!
 
@@ -8,7 +8,7 @@ Rapid Template Onboarding: With this intuitive framework, integrating new templa
 
 Empower your business processes with speed, efficiency, and precision. Dive into the future of PDF generation with PDFVending.
 
-Adding a New PDF Template:
+**Adding a New PDF Template:**
 
 1. HTML File Setup:
 Place your HTML files in the directory: pdfvending\src\main\resources\templates.
@@ -34,4 +34,4 @@ welcomeletter.template.name=welcome-letter
 loanstatement.template.name=loan-statement
 (Note: These parameters correspond to the HTML file names. No need to include the file extension.)
 
-Completion: Once these steps are completed, the new PDF can be generated via an API call. For API call details, refer to the provided Postman collection. When making the call, include the service name in the URL and provide a request body containing the necessary template parameters.
+Once these steps are completed, the new PDF can be generated via an API call. For API call details, refer to the provided Postman collection. When making the call, include the service name in the URL and provide a request body containing the necessary template parameters.
