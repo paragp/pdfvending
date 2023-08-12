@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Sanction Letter</title>
+    <style>
+        /* Add any CSS styling here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        @page{
+
+    @bottom-left {                 
+        content: element(footer);  
+        vertical-align: top;
+        padding-top: 10px;
+/*      border: solid red;    */
+    }
+
+    @top-right {
+        content: element(header); 
+        vertical-align: bottom;
+        padding-bottom: 10px;
+/*          border: solid green;   */
+    }
+
+    size: A4 portrait;
+    margin-top:5.5cm; 
+    margin-left:3cm; 
+    margin-right:2cm; 
+    margin-bottom:3.3cm; 
+}
+
+div.header {
+    display: block;                     
+    position: running(header);
+    border-bottom: 1px solid black;
+}
+
+div.footer {
+    margin-top: 0.5cm;
+    display: block;
+    position: running(footer);
+    border-top: 1px solid black; 
+}
+
+div.content {
+/*  border: solid purple;  */
+    display: block;
+    width: 15.4cm; 
+    text-align: justify;
+}
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <p><span th:text="${pdfId}"></span></p>
+    </div>
+    
+    <div class="footer">
+        <p>This is the footer that will repeat on every page at bottom</p>
+        <p>Page <span id="pagenumber"></span> of <span id="pagecount"></span></p>/
+    </div>
+    <h1>Loan Sanction Letter</h1>
+    <p>Hello <span th:text="${applicantName}"></span>,</p>
+    <p>Congratulations! You've been approved for a loan of <span th:text="${sanctionAmount}"></span>...</p>
+    <h2>Repayment Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Installment No</th>
+                <th>Date</th>
+                <th>Principal Amount</th>
+                <th>Interest</th>
+                <th>Total Repayment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="installment : ${repaymentSchedule}">
+                <td th:text="${installment.installmentNo}"></td>
+                <td th:text="${installment.date}"></td>
+                <td th:text="${installment.principalAmount}"></td>
+                <td th:text="${installment.interest}"></td>
+                <td th:text="${installment.totalRepayment}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

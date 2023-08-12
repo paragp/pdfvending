@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="logs/pdfvending.log"
+            filePattern="logs/pdfvending-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [traceId=%X{traceId}] %-5p %c{1}:%L - %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- This policy will trigger rollover every day -->
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="30" /> <!-- Retain up to 30 days' worth of logs -->
+        </RollingFile>
+        <!-- Asynchronous appender wrapping the RollingFile appender -->
+        <Async name="AsyncRollingFile">
+            <AppenderRef ref="RollingFile" />
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.your.package" level="DEBUG" additivity="false">
+            <!-- Refer to the asynchronous appender here -->
+            <AppenderRef ref="AsyncRollingFile" />
+        </Logger>
+        <Root level="INFO">
+            <!-- Refer to the asynchronous appender here -->
+            <AppenderRef ref="AsyncRollingFile" />
+        </Root>
+    </Loggers>
+</Configuration>
