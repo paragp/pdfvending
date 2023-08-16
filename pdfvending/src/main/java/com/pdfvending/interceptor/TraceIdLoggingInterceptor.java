@@ -1,3 +1,8 @@
+/*
+ * The interceptor generates a unique trace ID (using UUID) for every incoming web request and puts it in the MDC (Mapped Diagnostic Context) before handling the request.
+After the request is processed, the interceptor removes the trace ID from the MDC to avoid memory leaks.
+The postHandle method is not implemented and throws an UnsupportedOperationException.
+ */
 package com.pdfvending.interceptor;
 
 import org.slf4j.MDC;
