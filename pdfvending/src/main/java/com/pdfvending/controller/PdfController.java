@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pdfvending.services.impl.PDFService;
+import com.pdfvending.services.pdfservices.PDFService;
 import com.pdfvending.utils.GetCurrentTimestamp;
 
 @RestController

@@ -14,9 +14,16 @@ import java.util.concurrent.Executors;
 @Configuration
 public class PdfConverterConfig {
 
+    @Value("${pdfvending.threadpool.size}")
+    private int threadpoolSize;
+
     // We're defining an ExecutorService with a fixed thread pool of size 10 (it
     // can be adjusted based on the requirements and system's capabilities).
-    private final ExecutorService pdfConverterExecutorService = Executors.newFixedThreadPool(10);
+    private final ExecutorService pdfConverterExecutorService;
+
+    public PdfConverterConfig(@Value("${pdfvending.threadpool.size}") int threadpoolSize) {
+        this.pdfConverterExecutorService = Executors.newFixedThreadPool(threadpoolSize);
+    }
 
     @Bean
     public ExecutorService pdfConverterExecutorService() {
