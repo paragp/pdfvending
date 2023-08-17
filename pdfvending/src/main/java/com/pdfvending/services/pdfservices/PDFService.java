@@ -29,7 +29,7 @@ public class PDFService {
     }
 
     public CompletableFuture<byte[]> generatePDF(String type, Map<String, Object> data) {
-        logger.info("PDFService is called to generate PDF");
+        logger.info("PDF Generation process Started");
         logger.info(
                 "Get the relevant generator object based on the type passed as a request parameter in the controller");
         PDFGenerator generator = pdfGeneratorMap.get(type);
@@ -37,7 +37,7 @@ public class PDFService {
         if (generator == null) {
             throw new UnsupportedPdfTypeException("Unsupported PDF type: " + type);
         }
-        logger.info(generator.getClass() + " is selected for the type " + type);
+        logger.info(generator.getClass().getSimpleName() + " is selected for the type " + type);
         return generator.generatePDF(data);
     }
 }

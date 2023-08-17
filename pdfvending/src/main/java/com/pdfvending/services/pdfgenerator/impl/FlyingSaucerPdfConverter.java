@@ -1,3 +1,12 @@
+
+/*
+ * 
+   1. The class implements the PDFConverter   interface.
+   2. The primary method is convert, which takes an HTML content and template name as inputs and returns a CompletableFuture of the PDF file in byte format.
+   3. It uses the Flying Saucer PDF renderer (ITextRenderer) to convert HTML to PDF.
+   4. The class has a nested private class PdfGenerationTask that implements Callable and performs the actual PDF generation.
+   5. The class uses SLF4J logging and Mapped Diagnostic Context (MDC) for logging context.
+ */
 package com.pdfvending.services.pdfgenerator.impl;
 
 import org.slf4j.Logger;
@@ -5,15 +14,17 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
+import com.lowagie.text.DocumentException;
 import com.pdfvending.exception.PdfConversionException;
 import com.pdfvending.exception.PdfCreationException;
 import com.pdfvending.exception.PdfRenderingException;
-import com.pdfvending.services.move.PDFMoveService;
+
 import com.pdfvending.services.pdfgenerator.PDFConverter;
 import com.pdfvending.services.storage.PDFStorageService;
 import com.pdfvending.utils.Constants;
@@ -34,7 +45,6 @@ public class FlyingSaucerPdfConverter implements PDFConverter {
     @Autowired
     private PDFStorageService pdfStorageService;
 
-   
     @Override
     public CompletableFuture<byte[]> convert(String htmlContent, String templateName) {
         // Copy the current MDC context
@@ -45,7 +55,7 @@ public class FlyingSaucerPdfConverter implements PDFConverter {
             MDC.setContextMap(contextMap);
             try {
                 String fileName = templateName + GetCurrentTimestamp.getCurrentTimeStamp();
-                logger.info("File will be generated with the name " + fileName);
+                logger.info("File will be generated with the name " + fileName + " asynchronously");
 
                 byte[] fileByte = new PdfGenerationTask(htmlContent, fileName).call();
 
@@ -75,27 +85,23 @@ public class FlyingSaucerPdfConverter implements PDFConverter {
 
         @Override
         public byte[] call() {
+            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+                ITextRenderer renderer = new ITextRenderer();
+                renderer.setDocumentFromString(htmlContent);
 
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            ITextRenderer renderer = new ITextRenderer();
-            renderer.setDocumentFromString(htmlContent);
-            /*
-             * renderer.getSharedContext().setReplacedElementFactory(
-             * new HeaderFooterReplacedElementFactory(renderer.getOutputDevice()));
-             */
-            renderer.layout();
-            try {
+                renderer.layout();
                 long startTime = System.currentTimeMillis();
                 renderer.createPDF(outputStream);
                 long endTime = System.currentTimeMillis();
                 logger.info("PDF Generation took {} milliseconds", (endTime - startTime));
+                return outputStream.toByteArray();
 
-            } catch (Exception e) {
-                throw new PdfRenderingException("Error during PDF rendering.", e);
+            } catch (DocumentException de) {
+                throw new PdfRenderingException("Document formatting or structure issue during PDF rendering.", de);
+            } catch (IOException ioe) {
+                throw new PdfRenderingException("IO issue encountered during PDF rendering.", ioe);
             }
-            ;
 
-            return outputStream.toByteArray();
         }
 
     }
