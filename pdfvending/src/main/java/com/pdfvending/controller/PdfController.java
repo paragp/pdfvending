@@ -39,7 +39,7 @@ public class PdfController {
             headers.setContentDisposition(
                     ContentDisposition.builder("inline")
                             .filename(pdfType + GetCurrentTimestamp.getCurrentTimeStamp() + ".pdf").build());
-            logger.info("Sending PDF as a response");
+            logger.info("Sending PDF as a response to the API Call");
             return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
         });
     }

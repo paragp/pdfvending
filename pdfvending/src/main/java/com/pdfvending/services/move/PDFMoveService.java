@@ -27,7 +27,7 @@ public class PDFMoveService {
         MoveStrategyTypes type = MoveStrategyTypes.valueOf(pdfDestination);
 
         MoveStrategy moveStrategy = MoveStrategyFactory.getStorageStrategy(type);
-        logger.info("Moving strategy " + moveStrategy.getClass() + " selected for " + type.name());
+        logger.info("Moving strategy " + moveStrategy.getClass().getSimpleName() + " selected for " + type.name());
         moveStrategy.move(source, fileName, fileStoragePath);
     }
 

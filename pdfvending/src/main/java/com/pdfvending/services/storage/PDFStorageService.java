@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import com.pdfvending.services.move.PDFMoveService;
 import com.pdfvending.services.storage.factory.StorageStrategyFactory;
-import com.pdfvending.utils.Constants;
 import com.pdfvending.utils.StorageType;
 
 @Service("PDFStorageService")
@@ -43,7 +42,7 @@ public class PDFStorageService {
         StorageStrategy strategy = StorageStrategyFactory.getStorageStrategy(type);
 
         strategy.store(pdfData, fileName, tempPath);
-        logger.info("PDF File " + fileName + " stored at location " + tempPath);
+        logger.info("PDF File " + fileName + " successfully stored at location " + tempPath);
         File source = Paths.get(tempPath, fileName).toFile();
         logger.info(fileName + " File will be moved to the target location ");
         pdfMoveService.movePDF(source, fileName);
