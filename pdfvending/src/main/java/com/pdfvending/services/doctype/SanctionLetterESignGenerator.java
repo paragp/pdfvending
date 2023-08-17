@@ -20,6 +20,7 @@ import com.pdfvending.utils.GetCurrentTimestamp;
 public class SanctionLetterESignGenerator implements PDFGenerator {
     private static final Logger logger = LoggerFactory.getLogger(SanctionLetterESignGenerator.class);
     private static final String TRACE_ID = "traceId";
+    private static final String[] REQUIRED_FIELDS = { "applicantName", "sanctionAmount", "repaymentSchedule" };
     @Autowired
     private HtmlRenderer htmlRenderer;
 
@@ -31,10 +32,13 @@ public class SanctionLetterESignGenerator implements PDFGenerator {
 
     @Override
     public CompletableFuture<byte[]> generatePDF(Map<String, Object> data) {
+        if (data == null) {
+            throw new MissingDataException("Data cannot be null.", null);
+        }
+        validateData(data);
         data.put("pdfId", MDC.get(TRACE_ID));
         data.put("dateTime", GetCurrentTimestamp.getCurrentTimeStamp());
         String renderedHtmlContent = htmlRenderer.render(templateName, data);
-        validateData(data);
         logger.info("Generating the Sanction Letter ESign PDF");
         return pdfConverter.convert(renderedHtmlContent, templateName);
     }
@@ -45,9 +49,8 @@ public class SanctionLetterESignGenerator implements PDFGenerator {
         if (data == null) {
             throw new MissingDataException("Oops! You forgot provide data.", null);
         }
-        String[] requiredFields = { "applicantName", "sanctionAmount", "repaymentSchedule" };
 
-        for (String field : requiredFields) {
+        for (String field : REQUIRED_FIELDS) {
             if (!data.containsKey(field)) {
                 throw new MissingDataException("Oh no! You missed inserting the " + field + " coin.", null);
             }

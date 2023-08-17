@@ -20,6 +20,7 @@ import com.pdfvending.utils.GetCurrentTimestamp;
 public class WelcomeLetterGenerator implements PDFGenerator {
     private static final Logger logger = LoggerFactory.getLogger(WelcomeLetterGenerator.class);
     private static final String TRACE_ID = "traceId";
+    private static final String[] REQUIED_FIELDS = { "applicantName" };
     @Autowired
     private HtmlRenderer htmlRenderer;
 
@@ -31,10 +32,14 @@ public class WelcomeLetterGenerator implements PDFGenerator {
 
     @Override
     public CompletableFuture<byte[]> generatePDF(Map<String, Object> data) {
+        if (data == null) {
+            throw new MissingDataException("Data cannot be null.", null);
+        }
+        validateData(data);
         data.put("pdfId", MDC.get(TRACE_ID));
         data.put("dateTime", GetCurrentTimestamp.getCurrentTimeStamp());
         String renderedHtmlContent = htmlRenderer.render(templateName, data);
-        validateData(data);
+
         logger.info("Generating the Welcome Letter PDF");
         return pdfConverter.convert(renderedHtmlContent, templateName);
     }
@@ -45,9 +50,8 @@ public class WelcomeLetterGenerator implements PDFGenerator {
         if (data == null) {
             throw new MissingDataException("Oops! You forgot provide data.", null);
         }
-        String[] requiredFields = { "applicantName" };
 
-        for (String field : requiredFields) {
+        for (String field : REQUIED_FIELDS) {
             if (!data.containsKey(field)) {
                 throw new MissingDataException("Oh no! You missed inserting the " + field + " coin.", null);
             }
