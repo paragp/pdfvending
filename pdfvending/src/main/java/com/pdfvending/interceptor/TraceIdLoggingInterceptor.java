@@ -5,6 +5,8 @@ The postHandle method is not implemented and throws an UnsupportedOperationExcep
  */
 package com.pdfvending.interceptor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
@@ -16,6 +18,8 @@ import java.util.UUID;
 @Component
 public class TraceIdLoggingInterceptor implements WebRequestInterceptor {
 
+    private static final Logger logger = LoggerFactory.getLogger(TraceIdLoggingInterceptor.class);
+
     private static final String TRACE_ID = "traceId";
 
     @Override
@@ -24,17 +28,23 @@ public class TraceIdLoggingInterceptor implements WebRequestInterceptor {
         String traceId = UUID.randomUUID().toString();
         // Put trace ID to MDC
         MDC.put(TRACE_ID, traceId);
+        logger.info("*********************************************");
+        logger.info("Generated trace ID: {}", traceId);
+
     }
 
     @Override
     public void afterCompletion(WebRequest webRequest, Exception e) throws Exception {
         // Once the request is processed, remove trace ID from MDC to avoid memory leak
         MDC.remove(TRACE_ID);
+        logger.info("Removed trace ID from MDC");
+        logger.info("*********************************************");
+
     }
 
     @Override
     public void postHandle(WebRequest arg0, ModelMap arg1) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'postHandle'");
+        // Intentionally left unimplemented as it's not required for the current
+        // functionality
     }
 }

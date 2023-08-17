@@ -31,6 +31,7 @@ public class FileSystemMoveStrategy implements MoveStrategy {
         File targetFile = Paths.get(fileStoragePath, dateFolderName, fileName).toFile();
         // Ensure the final storage folder exists
         FileUtils.ensureFolderExists(targetFile.getParentFile());
+        logger.info("Check Post");
         // InputStream is closed automatically, whether the operation completes
         // successfully or an exception is thrown.
         try (InputStream in = new FileInputStream(source)) {
